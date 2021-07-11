@@ -1,0 +1,29 @@
+<?php require APPROOT . '/views/inc/header.php'; ?>
+<!-- <div class="row"> -->
+<a href="<? URLROOT; ?>/" class="btn btn-light"> <i class="fa fa-backward"></i> Back</a>
+<div class="col-md-6 mx-auto">
+    <div class="card card-body bg-light mt-5">
+        <h2>Add task</h2>
+        <p>Create a task</p>
+        <form action="<?= URLROOT ?>tasks/add" method="post">
+            <div class="form-group">
+                <label for="title">User name <sup>*</sup></label>
+                <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>">
+                <span class="invalid-feedback"><?= $data['name_err']; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="title">Email <sup>*</sup></label>
+                <input type="text" name="email" class="form-control form-control-lg <?= (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['email']; ?>">
+                <span class="invalid-feedback"><?= $data['email_err']; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="body">Task : <sup>*</sup></label>
+                <textarea type="text" name="task_content" class="form-control form-control-lg <?= (!empty($data['content_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['task_content']; ?>"> </textarea>
+                <span class="invalid-feedback"><?= $data['content_err']; ?></span>
+            </div>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+    </div>
+    <!-- </div> -->
+</div>
+<?php require APPROOT . '/views/inc/footer.php'; ?>

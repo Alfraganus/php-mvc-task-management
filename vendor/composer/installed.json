@@ -1,0 +1,111 @@
+{
+    "packages": [
+        {
+            "name": "symfony/console",
+            "version": "v2.6.7",
+            "version_normalized": "2.6.7.0",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "ebc5679854aa24ed7d65062e9e3ab0b18a917272"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ebc5679854aa24ed7d65062e9e3ab0b18a917272",
+                "reference": "ebc5679854aa24ed7d65062e9e3ab0b18a917272",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/process": "~2.1"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "time": "2015-05-02T15:18:45+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "install-path": "../../vendor/symfony/console/Symfony/Component/Console"
+        },
+        {
+            "name": "yidas/pagination",
+            "version": "1.0.6",
+            "version_normalized": "1.0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yidas/php-pagination.git",
+                "reference": "b340639a535227891cb8f52b79877a95e6586702"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yidas/php-pagination/zipball/b340639a535227891cb8f52b79877a95e6586702",
+                "reference": "b340639a535227891cb8f52b79877a95e6586702",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "time": "2018-12-22T08:33:24+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "yidas\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP Paginator with Pager Widget (pure PHP, CI, Yii, Laravel support)",
+            "homepage": "https://github.com/yidas/php-pagination",
+            "keywords": [
+                "codeigniter",
+                "linkpager",
+                "pagination",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/yidas/php-pagination/issues",
+                "source": "https://github.com/yidas/php-pagination"
+            },
+            "install-path": "../../vendor/yidas/pagination"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
