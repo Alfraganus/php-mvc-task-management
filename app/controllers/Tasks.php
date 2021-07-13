@@ -140,16 +140,43 @@ class tasks extends Controller
 
         $task = $this->taskModel->show($id);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
+                'name' => trim($_POST['name']),
+                'email' => trim($_POST['email']),
+                'task_content' => trim($_POST['task_content']),
                 'status'=> trim($_POST['status']),
-                'id'=> $task->id
+                'id'=> $task->id,
+                'name_err' => '',
+                'content_err' => '',
+                'email_err' => '',
             ];
+
+            if (empty($data['name'])) {
+                $data['name_err'] = 'Please enter title';
+            }
+            if (empty($data['task_content'])) {
+                $data['content_err'] = 'Please enter task text';
+            }
+            if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $data['email_err'] = 'Please enter email';
+            }
+            if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $data['email_err'] = 'Email is not valid';
+            }
+
+            /*if error does not occur*/
+            if (empty($data['name_err']) && empty($data['content_err']) && empty($data['email_err'])) {
                 if ($this->taskModel->updateTask($data)) {
                     flash('post_message', 'Task Edited');
                     redirect("/");
-                }  else {
-                $this->view('posts/edit', $data);
+                } else {
+                    die('something went wrong');
+                }
+            } else {
+                /*if error occurs*/
+                $this->view('tasks/edit', $data);
             }
         } else {
             $data = [

@@ -48,7 +48,10 @@ class Task
 
     public function updateTask($data)
     {
-        $this->db->query('UPDATE tasks SET status=:status WHERE id =:id');
+        $this->db->query('UPDATE tasks SET name=:name, email=:email,task_content=:task_content,status=:status WHERE id =:id');
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':task_content', $data['task_content']);
         $this->db->bind(':status', $data['status']);
         $this->db->bind(':id', $data['id']);
 

@@ -8,15 +8,18 @@
             <form action="<?= URLROOT ?>tasks/adminEdit/<?= $data['id']; ?>" method="post">
                 <div class="form-group">
                     <label for="title">User name <sup>*</sup></label>
-                    <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>" readonly>
+                    <input type="text" name="name" class="form-control form-control-lg <?= (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name']; ?>">
+                    <span class="invalid-feedback"><?= $data['name_err']; ?></span>
                 </div>
                 <div class="form-group">
                     <label for="title">Email <sup>*</sup></label>
-                    <input type="text" name="email" class="form-control form-control-lg <?= (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['email']; ?>" readonly>
+                    <input type="text" name="email" class="form-control form-control-lg <?= (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['email']; ?>">
+                    <span class="invalid-feedback"><?= $data['email_err']; ?></span>
                 </div>
                 <div class="form-group">
                     <label for="body">Task : <sup>*</sup></label>
-                    <input type="text" name="task_content" class="form-control form-control-lg <?= (!empty($data['content_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['task_content']; ?>" readonly>
+                    <input type="text" name="task_content" class="form-control form-control-lg <?= (!empty($data['content_err'])) ? 'is-invalid' : ''; ?>" value="<?= $data['task_content']; ?>">
+                    <span class="invalid-feedback"><?= $data['content_err']; ?></span>
                 </div>
 
                 <div class="form-group">
