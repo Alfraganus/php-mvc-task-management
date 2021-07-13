@@ -149,7 +149,7 @@ class Users extends Controller
     {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_login'] = $user->login;
-        redirect('/');
+        redirect('tasks/adminTask');
     }
     public function logout()
     {

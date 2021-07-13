@@ -97,8 +97,11 @@ class tasks extends Controller
             if (empty($data['task_content'])) {
                 $data['content_err'] = 'Please enter task text';
             }
-            if (empty($data['email'])) {
+            if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                 $data['email_err'] = 'Please enter email';
+            }
+            if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $data['email_err'] = 'Email is not valid';
             }
 
             if (empty($data['name_err']) && empty($data['content_err']) && empty($data['email_err'])) {
