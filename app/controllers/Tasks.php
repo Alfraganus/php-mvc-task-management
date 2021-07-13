@@ -15,6 +15,18 @@ class tasks extends Controller
         $this->userModel = $this->model('User');
     }
 
+    public function checkOrder($order)
+    {
+        $orderValues = [
+          'ASC',
+          'DESC'
+        ];
+        if(!in_array($order,$orderValues)) {
+            return 'ASC';
+        } else {
+            return $order;
+        }
+    }
 
     public function index()
     {
@@ -30,13 +42,13 @@ class tasks extends Controller
         $getValue =null;
         if(isset($_GET['orderByName'])) {
             $getKey =  'name';
-            $getValue = trim( $_GET['orderByName']);
+            $getValue = $this->checkOrder(trim($_GET['orderByName']));
         } elseif (isset($_GET['orderByEmail'])) {
             $getKey =  'email';
-            $getValue = trim( $_GET['orderByEmail']);
+            $getValue = $this->checkOrder(trim($_GET['orderByEmail']));
         } elseif (isset($_GET['orderByStatus'])) {
             $getKey =  'status';
-            $getValue = trim( $_GET['orderByStatus']);
+            $getValue = $this->checkOrder(trim($_GET['orderByStatus']));
         } else {
             $getKey =  'name';
             $getValue = 'ASC';
