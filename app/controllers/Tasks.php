@@ -10,7 +10,7 @@ class tasks extends Controller
     public function __construct()
     {
         $this->db = new Database;
-        $this->dataPerPage =20;
+        $this->dataPerPage =3;
         $this->taskModel = $this->model('Task');
         $this->userModel = $this->model('User');
     }

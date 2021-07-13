@@ -39,8 +39,8 @@
                        Status
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="?orderByStatus=ASC">finished</a>
-                        <a class="dropdown-item" href="?orderByStatus=DESC">not-finished</a>
+                        <a class="dropdown-item" href="?orderByStatus=DESC">finished</a>
+                        <a class="dropdown-item" href="?orderByStatus=ASC">not-finished</a>
                     </div>
                 </div>
             </th>
