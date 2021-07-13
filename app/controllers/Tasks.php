@@ -10,7 +10,7 @@ class tasks extends Controller
     public function __construct()
     {
         $this->db = new Database;
-        $this->dataPerPage =3;
+        $this->dataPerPage =20;
         $this->taskModel = $this->model('Task');
         $this->userModel = $this->model('User');
     }
@@ -26,12 +26,24 @@ class tasks extends Controller
             'totalCount' => $this->db->rowCount(),
             'perPage'=> $this->dataPerPage,
         ]);
-        $orderByname = isset($_GET['orderByName'])?$_GET['orderByName']:'ASC';
-        $orderByEmail = isset($_GET['orderByEmail'])?$_GET['orderByEmail']:'ASC';
-        $orderByStatus = isset($_GET['orderByStatus'])?$_GET['orderByStatus']:'ASC';
+        $getKey =null;
+        $getValue =null;
+        if(isset($_GET['orderByName'])) {
+            $getKey =  'name';
+            $getValue = trim( $_GET['orderByName']);
+        } elseif (isset($_GET['orderByEmail'])) {
+            $getKey =  'email';
+            $getValue = trim( $_GET['orderByEmail']);
+        } elseif (isset($_GET['orderByStatus'])) {
+            $getKey =  'status';
+            $getValue = trim( $_GET['orderByStatus']);
+        } else {
+            $getKey =  'name';
+            $getValue = 'ASC';
+        }
 
         // Get range data for the current page
-        $this->db->query("SELECT * FROM `tasks` ORDER BY name $orderByname ,email $orderByEmail ,status $orderByStatus  LIMIT {$pagination->offset}, {$pagination->limit}");
+        $this->db->query("SELECT * FROM `tasks` ORDER BY $getKey $getValue LIMIT {$pagination->offset}, {$pagination->limit}");
         $paginationData = $this->db->resultSet();
 
         $data = [
